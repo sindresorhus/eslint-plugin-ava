@@ -32,6 +32,7 @@ module.exports = {
 				'ava/no-incorrect-deep-equal': 'error',
 				'ava/no-inline-assertions': 'error',
 				'ava/no-invalid-end': 'error',
+				'ava/no-invalid-modifier-chain': 'error',
 				'ava/no-nested-tests': 'error',
 				'ava/no-only-test': 'error',
 				'ava/no-skip-assert': 'error',

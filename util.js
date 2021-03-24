@@ -126,3 +126,17 @@ const assertionMethodNames = [...assertionMethodsNumberArguments.keys()];
 exports.assertionMethodsNumArguments = assertionMethodsNumberArguments;
 exports.assertionMethods = new Set(assertionMethodNames);
 exports.executionMethods = new Set(assertionMethodNames.concat(['end', 'plan', 'log', 'teardown', 'timeout']));
+
+exports.testModifierNames = new Set([
+	'after',
+	'afterEach',
+	'always',
+	'before',
+	'beforeEach',
+	'cb',
+	'only',
+	'serial',
+	'skip',
+	'todo',
+	'failing'
+]);

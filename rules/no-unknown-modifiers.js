@@ -42,6 +42,8 @@ const create = context => {
 
 module.exports = {
 	create,
+	deprecated: true,
+	replacedBy: ['no-invalid-modifier-chain'],
 	meta: {
 		docs: {
 			url: util.getDocsUrl(__filename)
