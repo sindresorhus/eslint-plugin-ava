@@ -42,6 +42,7 @@ Configure it in `package.json`.
 			"ava/no-async-fn-without-await": "error",
 			"ava/no-cb-test": "off",
 			"ava/no-duplicate-modifiers": "error",
+			"ava/no-error-ctor-with-notthrows": "error",
 			"ava/no-identical-title": "error",
 			"ava/no-ignored-test-files": "error",
 			"ava/no-import-test-files": "error",
@@ -82,6 +83,7 @@ The rules will only activate in test files.
 - [no-async-fn-without-await](docs/rules/no-async-fn-without-await.md) - Ensure that async tests use `await`.
 - [no-cb-test](docs/rules/no-cb-test.md) - Ensure no `test.cb()` is used.
 - [no-duplicate-modifiers](docs/rules/no-duplicate-modifiers.md) - Ensure tests do not have duplicate modifiers.
+- [no-error-ctor-with-notthrows](docs/rules/no-error-ctor-with-notthrows.md) - Ensure no error constructor is specified in `t.notThrows()`.
 - [no-identical-title](docs/rules/no-identical-title.md) - Ensure no tests have the same title.
 - [no-ignored-test-files](docs/rules/no-ignored-test-files.md) - Ensure no tests are written in ignored files.
 - [no-import-test-files](docs/rules/no-import-test-files.md) - Ensure no test files are imported anywhere.

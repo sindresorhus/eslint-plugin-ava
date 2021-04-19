@@ -26,6 +26,7 @@ module.exports = {
 				'ava/no-async-fn-without-await': 'error',
 				'ava/no-cb-test': 'off',
 				'ava/no-duplicate-modifiers': 'error',
+				'ava/no-error-ctor-with-notthrows': 'error',
 				'ava/no-identical-title': 'error',
 				'ava/no-ignored-test-files': 'error',
 				'ava/no-import-test-files': 'error',
