@@ -31,15 +31,24 @@ const create = context => {
 
 	return {
 		ImportDeclaration: node => {
-			if (node.source.value === 'ava') {
-				const {name} = node.specifiers[0].local;
+			const firstSpecifier = node.specifiers[0];
+			if (
+				firstSpecifier &&
+				firstSpecifier.type === 'ImportDefaultSpecifier' &&
+				node.source.value === 'ava'
+			) {
+				const {name} = firstSpecifier.local;
 				if (name !== 'test' && (!isTypeScript || name !== 'anyTest')) {
 					report(context, node);
 				}
 			}
 		},
 		VariableDeclarator: node => {
-			if (node.init && deepStrictEqual(espurify(node.init), avaVariableDeclaratorInitAst)) {
+			if (
+				node.id.type === 'Identifier' &&
+				node.init &&
+				deepStrictEqual(espurify(node.init), avaVariableDeclaratorInitAst)
+			) {
 				const {name} = node.id;
 				if (name !== 'test' && (!isTypeScript || name !== 'anyTest')) {
 					report(context, node);
