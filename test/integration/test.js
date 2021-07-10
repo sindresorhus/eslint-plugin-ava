@@ -32,7 +32,7 @@ const packages = new Map([
 	['imagemin', 'https://github.com/imagemin/imagemin'],
 	['color-convert', 'https://github.com/qix-/color-convert'],
 	['eslint-plugin-unicorn', 'https://github.com/sindresorhus/eslint-plugin-unicorn'],
-	['ky', 'https://github.com/sindresorhus/ky'],
+	// ['ky', 'https://github.com/sindresorhus/ky'],
 	['query-string', 'https://github.com/sindresorhus/query-string'],
 	['meow', 'https://github.com/sindresorhus/meow'],
 	['emittery', 'https://github.com/sindresorhus/emittery'],
