@@ -32,9 +32,9 @@
 	"dependencies": {
 		"deep-strict-equal": "^0.2.0",
 		"enhance-visitors": "^1.0.0",
-		"eslint-utils": "^2.1.0",
-		"espree": "^7.3.1",
-		"espurify": "^2.0.1",
+		"eslint-utils": "^3.0.0",
+		"espree": "^8.0.0",
+		"espurify": "^2.1.1",
 		"import-modules": "^2.1.0",
 		"micro-spelling-correcter": "^1.1.1",
 		"pkg-dir": "^5.0.0",
