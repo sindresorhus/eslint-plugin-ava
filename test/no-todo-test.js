@@ -23,14 +23,6 @@ ruleTester.run('no-todo-test', rule, {
 		{
 			code: header + 'test.todo("my test name");',
 			errors
-		},
-		{
-			code: header + 'test.todo.cb("my test name");',
-			errors
-		},
-		{
-			code: header + 'test.cb.todo("my test name");',
-			errors
 		}
 	]
 });

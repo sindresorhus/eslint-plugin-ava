@@ -17,8 +17,6 @@ ruleTester.run('no-unknown-modifiers', rule, {
 		`${header}test.afterEach(t => {});`,
 		`${header}test.before(t => {});`,
 		`${header}test.beforeEach(t => {});`,
-		`${header}test.cb(t => {});`,
-		`${header}test.cb.only(t => {});`,
 		`${header}test.only(t => {});`,
 		`${header}test.serial(t => {});`,
 		`${header}test.skip(t => {});`,
@@ -26,6 +24,7 @@ ruleTester.run('no-unknown-modifiers', rule, {
 		`${header}test.after.always(t => {});`,
 		`${header}test.afterEach.always(t => {});`,
 		`${header}test.failing(t => {});`,
+		`${header}test.macro(t => {});`,
 		// Shouldn't be triggered since it's not a test file
 		'test.foo(t => {});'
 	],
@@ -67,12 +66,12 @@ ruleTester.run('no-unknown-modifiers', rule, {
 			}]
 		},
 		{
-			code: `${header}test.cb.onlu(t => {});`,
+			code: `${header}test.cb(t => {});`,
 			errors: [{
-				message: 'Unknown test modifier `.onlu`.',
+				message: 'Unknown test modifier `.cb`.',
 				type: 'Identifier',
 				line: 2,
-				column: 9
+				column: 6
 			}]
 		},
 		{

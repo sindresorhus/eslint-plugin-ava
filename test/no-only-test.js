@@ -17,7 +17,6 @@ const header = 'const test = require(\'ava\');\n';
 ruleTester.run('no-only-test', rule, {
 	valid: [
 		header + 'test("my test name", t => { t.pass(); });',
-		header + 'test.cb("my test name", t => { t.pass(); t.end(); });',
 		header + 'test(t => { t.pass(); }); test(t => { t.pass(); });',
 		header + 'notTest.only();',
 		// Shouldn't be triggered since it's not a test file
@@ -112,32 +111,6 @@ ruleTester.run('no-only-test', rule, {
 				suggestions: [{
 					desc: 'Remove the `.only`',
 					output: header + 'test(t => { t.pass(); });'
-				}]
-			}]
-		},
-		{
-			code: header + 'test.cb.only(t => { t.pass(); t.end(); });',
-			errors: [{
-				message,
-				type: 'Identifier',
-				line: 2,
-				column: 9,
-				suggestions: [{
-					desc: 'Remove the `.only`',
-					output: header + 'test.cb(t => { t.pass(); t.end(); });'
-				}]
-			}]
-		},
-		{
-			code: header + 'test.only.cb(t => { t.pass(); t.end(); });',
-			errors: [{
-				message,
-				type: 'Identifier',
-				line: 2,
-				column: 6,
-				suggestions: [{
-					desc: 'Remove the `.only`',
-					output: header + 'test.cb(t => { t.pass(); t.end(); });'
 				}]
 			}]
 		}

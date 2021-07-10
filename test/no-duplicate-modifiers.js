@@ -16,7 +16,6 @@ const modifiers = [
 	'always',
 	'before',
 	'beforeEach',
-	'cb',
 	'failing',
 	'only',
 	'serial',
@@ -40,22 +39,9 @@ const invalid = modifiers.map(modifier => ({
 ruleTester.run('no-duplicate-modifiers', rule, {
 	valid: [...valid,
 		`${header}test(t => {});`,
-		`${header}test.cb.only(t => {});`,
 		`${header}test.after.always(t => {});`,
 		`${header}test.afterEach.always(t => {});`,
-		`${header}test.failing.cb(t => {});`,
 		// Shouldn't be triggered since it's not a test file
 		'test.serial.serial(t => {});'],
-	invalid: [...invalid,
-		{
-			code: `${header}test.serial.cb.only.serial(t => {});`,
-			errors: [
-				{
-					message: 'Duplicate test modifier `.serial`.',
-					type: 'Identifier',
-					line: 2,
-					column: 21
-				}
-			]
-		}]
+	invalid
 });

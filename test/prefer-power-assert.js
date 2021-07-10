@@ -91,7 +91,7 @@ function testWithModifier(modifier) {
 	});
 }
 
-for (const modifiers of ['skip', 'only', 'cb', 'serial']) {
+for (const modifiers of ['skip', 'only', 'serial']) {
 	testWithModifier(modifiers);
 }
 
@@ -134,7 +134,7 @@ test(t => {
 ruleTester.run('prefer-power-assert', rule, {
 	valid: [
 		{
-			code: 'import test from \'ava\';\n test.cb(function (t) { t.assert(foo); t.end(); });'
+			code: 'import test from \'ava\';\n test(function (t) { t.assert(foo); });'
 		},
 		// Shouldn't be triggered since it's not a test file
 		{

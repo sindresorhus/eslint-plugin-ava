@@ -9,12 +9,12 @@ const modifiers = new Set([
 	'always',
 	'before',
 	'beforeEach',
-	'cb',
 	'only',
 	'serial',
 	'skip',
 	'todo',
-	'failing'
+	'failing',
+	'macro'
 ]);
 
 const unknownModifiers = node => util.getTestModifiers(node)

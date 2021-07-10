@@ -16,13 +16,12 @@ ruleTester.run('test-title', rule, {
 		header + 'test("my test name", t => { t.pass(); t.end(); });',
 		header + 'test(`my test name`, t => { t.pass(); t.end(); });',
 		header + 'test(\'my test name\', t => { t.pass(); t.end(); });',
-		header + 'test.cb("my test name", t => { t.pass(); t.end(); });',
 		header + 'test.todo("my test name");',
 		header + 'test.before(t => {});',
 		header + 'test.after(t => {});',
 		header + 'test.beforeEach(t => {});',
 		header + 'test.afterEach(t => {});',
-		header + 'test.cb.before(t => {}); test.before.cb(t => {});',
+		header + 'test.macro(t => {});',
 		header + 'notTest(t => { t.pass(); t.end(); });',
 		header + 'test([], arg1, arg2);',
 		header + 'test({}, arg1, arg2);',
@@ -40,14 +39,6 @@ ruleTester.run('test-title', rule, {
 		},
 		{
 			code: header + 'test(t => { t.pass(); t.end(); });',
-			errors
-		},
-		{
-			code: header + 'test.cb(t => { t.pass(); t.end(); });',
-			errors
-		},
-		{
-			code: header + 'test.cb.skip(t => { t.pass(); t.end(); });',
 			errors
 		},
 		{

@@ -216,12 +216,13 @@ module.exports = () => { // eslint-disable-line eslint-plugin/prefer-object-rule
 
 	return {
 		hasTestModifier: mod => getTestModifierNames(currentTestNode).includes(mod),
-		hasNoHookModifier: () => {
+		hasNoUtilityModifier: () => {
 			const modifiers = getTestModifierNames(currentTestNode);
 			return !modifiers.includes('before') &&
 				!modifiers.includes('beforeEach') &&
 				!modifiers.includes('after') &&
-				!modifiers.includes('afterEach');
+				!modifiers.includes('afterEach') &&
+				!modifiers.includes('macro');
 		},
 		isInTestFile: () => isTestFile,
 		isInTestNode: () => currentTestNode,

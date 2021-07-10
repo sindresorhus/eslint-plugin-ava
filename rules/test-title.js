@@ -10,7 +10,7 @@ const create = context => {
 		CallExpression: visitIf([
 			ava.isInTestFile,
 			ava.isTestNode,
-			ava.hasNoHookModifier
+			ava.hasNoUtilityModifier
 		])(node => {
 			const firstArgumentIsFunction = node.arguments.length === 0 || util.isFunctionExpression(node.arguments[0]);
 

@@ -16,7 +16,6 @@ ruleTester.run('no-identical-title', rule, {
 	valid: [
 		header + 'test("my test name", t => {});',
 		header + 'test("a", t => {}); test("b", t => {});',
-		header + 'test("a", t => {}); test.cb("b", t => {});',
 		header + 'test.todo("a"); test.todo("b");',
 		header + 'test("a", t => {}); notTest("a", t => {});',
 		// eslint-disable-next-line no-template-curly-in-string
@@ -28,11 +27,11 @@ ruleTester.run('no-identical-title', rule, {
 		header + 'test.after(t => {}); test.after(t => {});',
 		header + 'test.beforeEach(t => {}); test.beforeEach(t => {});',
 		header + 'test.afterEach(t => {}); test.afterEach(t => {});',
-		header + 'test.cb.before(t => {}); test.before.cb(t => {});',
 		// Macros
 		` ${header}
 			const macro = (t, value) => { t.true(value); };
 
+			test(macro, true);
 			test('should work', macro, true);
 			test('should fail', macro, false);
 		`,
@@ -63,33 +62,6 @@ ruleTester.run('no-identical-title', rule, {
 				type: 'TemplateLiteral',
 				line: 2,
 				column: 26
-			}]
-		},
-		{
-			code: header + 'test("a", t => {}); test.cb("a", t => {});',
-			errors: [{
-				message,
-				type: 'Literal',
-				line: 2,
-				column: 29
-			}]
-		},
-		{
-			code: header + 'test(`a`, t => {}); test.cb(`a`, t => {});',
-			errors: [{
-				message,
-				type: 'TemplateLiteral',
-				line: 2,
-				column: 29
-			}]
-		},
-		{
-			code: header + 'test("a", t => {}); test.cb.skip("a", t => {});',
-			errors: [{
-				message,
-				type: 'Literal',
-				line: 2,
-				column: 34
 			}]
 		},
 		{

@@ -18,7 +18,6 @@ ruleTester.run('no-todo-implementation', rule, {
 		header + 'test(t => {});',
 		header + 'test("title", t => {});',
 		header + 'test.todo("title");',
-		header + 'test.todo.cb("title");',
 		header + 'notTest.todo(t => {});',
 		// Shouldn't be triggered since it's not a test file
 		'test.todo("title", t => {});'
@@ -46,22 +45,6 @@ ruleTester.run('no-todo-implementation', rule, {
 		},
 		{
 			code: header + 'test.todo(function foo(t) {});',
-			errors
-		},
-		{
-			code: header + 'test.todo.cb("title", t => {});',
-			errors
-		},
-		{
-			code: header + 'test.todo.cb(t => {});',
-			errors
-		},
-		{
-			code: header + 'test.cb.todo("title", t => {});',
-			errors
-		},
-		{
-			code: header + 'test.cb.todo(t => {});',
 			errors
 		}
 	]

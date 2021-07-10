@@ -12,14 +12,6 @@ const test = require('ava');
 test('foo', foo => { // Incorrect name
 	t.pass();
 });
-
-test('bar', (t, bar) => { // too many arguments
-	t.pass();
-});
-
-test('baz', (bar, t) => { // too many arguments
-	t.pass();
-});
 ```
 
 ### Pass

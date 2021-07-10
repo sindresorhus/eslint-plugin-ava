@@ -40,26 +40,22 @@ Configure it in `package.json`.
 				5
 			],
 			"ava/no-async-fn-without-await": "error",
-			"ava/no-cb-test": "off",
 			"ava/no-duplicate-modifiers": "error",
 			"ava/no-identical-title": "error",
 			"ava/no-ignored-test-files": "error",
 			"ava/no-import-test-files": "error",
 			"ava/no-incorrect-deep-equal": "error",
 			"ava/no-inline-assertions": "error",
-			"ava/no-invalid-end": "error",
 			"ava/no-nested-tests": "error",
 			"ava/no-only-test": "error",
 			"ava/no-skip-assert": "error",
 			"ava/no-skip-test": "error",
-			"ava/no-statement-after-end": "error",
 			"ava/no-todo-implementation": "error",
 			"ava/no-todo-test": "warn",
 			"ava/no-unknown-modifiers": "error",
 			"ava/prefer-async-await": "error",
 			"ava/prefer-power-assert": "off",
 			"ava/prefer-t-regex": "error",
-			"ava/test-ended": "error",
 			"ava/test-title": "error",
 			"ava/test-title-format": "off",
 			"ava/use-t": "error",
@@ -80,26 +76,22 @@ The rules will only activate in test files.
 - [hooks-order](docs/rules/hooks-order.md) - Enforce test hook ordering. *(fixable)*
 - [max-asserts](docs/rules/max-asserts.md) - Limit the number of assertions in a test.
 - [no-async-fn-without-await](docs/rules/no-async-fn-without-await.md) - Ensure that async tests use `await`.
-- [no-cb-test](docs/rules/no-cb-test.md) - Ensure no `test.cb()` is used.
 - [no-duplicate-modifiers](docs/rules/no-duplicate-modifiers.md) - Ensure tests do not have duplicate modifiers.
 - [no-identical-title](docs/rules/no-identical-title.md) - Ensure no tests have the same title.
 - [no-ignored-test-files](docs/rules/no-ignored-test-files.md) - Ensure no tests are written in ignored files.
 - [no-import-test-files](docs/rules/no-import-test-files.md) - Ensure no test files are imported anywhere.
 - [no-incorrect-deep-equal](docs/rules/no-incorrect-deep-equal.md) - Avoid using `deepEqual` with primitives. *(fixable)*
 - [no-inline-assertions](docs/rules/no-inline-assertions.md) - Ensure assertions are not called from inline arrow functions. *(fixable)*
-- [no-invalid-end](docs/rules/no-invalid-end.md) - Ensure `t.end()` is only called inside `test.cb()`.
 - [no-nested-tests](docs/rules/no-nested-tests.md) - Ensure no tests are nested.
 - [no-only-test](docs/rules/no-only-test.md) - Ensure no `test.only()` are present.
 - [no-skip-assert](docs/rules/no-skip-assert.md) - Ensure no assertions are skipped.
 - [no-skip-test](docs/rules/no-skip-test.md) - Ensure no tests are skipped.
-- [no-statement-after-end](docs/rules/no-statement-after-end.md) - Ensure `t.end()` is the last statement executed.
 - [no-todo-implementation](docs/rules/no-todo-implementation.md) - Ensure `test.todo()` is not given an implementation function.
 - [no-todo-test](docs/rules/no-todo-test.md) - Ensure no `test.todo()` is used.
 - [no-unknown-modifiers](docs/rules/no-unknown-modifiers.md) - Prevent the use of unknown test modifiers.
 - [prefer-async-await](docs/rules/prefer-async-await.md) - Prefer using async/await instead of returning a Promise.
 - [prefer-power-assert](docs/rules/prefer-power-assert.md) - Allow only use of the asserts that have no [power-assert](https://github.com/power-assert-js/power-assert) alternative.
 - [prefer-t-regex](docs/rules/prefer-t-regex.md) - Prefer using `t.regex()` to test regular expressions. *(fixable)*
-- [test-ended](docs/rules/test-ended.md) - Ensure callback tests are explicitly ended.
 - [test-title](docs/rules/test-title.md) - Ensure tests have a title.
 - [test-title-format](docs/rules/test-title-format.md) - Ensure test titles have a certain format.
 - [use-t](docs/rules/use-t.md) - Ensure test functions use `t` as their parameter.

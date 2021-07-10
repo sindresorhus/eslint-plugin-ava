@@ -11,7 +11,6 @@ const test = require('ava');
 
 test.onlu(t => {});
 test.seril(t => {});
-test.cb.onlu(t => {});
 test.beforeeach(t => {});
 test.unknown(t => {});
 ```
@@ -23,6 +22,5 @@ const test = require('ava');
 
 test.only(t => {});
 test.serial(t => {});
-test.cb.only(t => {});
 test.beforeEach(t => {});
 ```

@@ -17,7 +17,7 @@ const create = context => {
 		CallExpression: visitIf([
 			ava.isInTestFile,
 			ava.isTestNode,
-			ava.hasNoHookModifier
+			ava.hasNoUtilityModifier
 		])(node => {
 			const requiredLength = ava.hasTestModifier('todo') ? 1 : 2;
 			const hasTitle = node.arguments.length >= requiredLength;

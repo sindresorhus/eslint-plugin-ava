@@ -11,9 +11,7 @@ const test = require('ava');
 
 test.only.only(t => {});
 test.serial.serial(t => {});
-test.cb.cb(t => {});
 test.beforeEach.beforeEach(t => {});
-test.only.only.cb(t => {});
 ```
 
 ## Pass
@@ -23,6 +21,5 @@ const test = require('ava');
 
 test.only(t => {});
 test.serial(t => {});
-test.cb.only(t => {});
 test.beforeEach(t => {});
 ```

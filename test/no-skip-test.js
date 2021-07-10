@@ -14,7 +14,6 @@ const header = 'const test = require(\'ava\');\n';
 ruleTester.run('no-skip-test', rule, {
 	valid: [
 		header + 'test("my test name", t => { t.pass(); });',
-		header + 'test.cb("my test name", t => { t.pass(); t.end(); });',
 		header + 'test(t => { t.pass(); }); test(t => { t.pass(); });',
 		header + 'test(t => { t.skip.is(1, 2); });',
 		header + 'notTest.skip();',
@@ -32,58 +31,6 @@ ruleTester.run('no-skip-test', rule, {
 				suggestions: [{
 					desc: 'Remove the `.skip`',
 					output: header + 'test(t => { t.pass(); });'
-				}]
-			}]
-		},
-		{
-			code: header + 'test.cb.skip(t => { t.pass(); t.end(); });',
-			errors: [{
-				message,
-				type: 'Identifier',
-				line: 2,
-				column: 9,
-				suggestions: [{
-					desc: 'Remove the `.skip`',
-					output: header + 'test.cb(t => { t.pass(); t.end(); });'
-				}]
-			}]
-		},
-		{
-			code: header + 'test.skip.cb(t => { t.pass(); t.end(); });',
-			errors: [{
-				message,
-				type: 'Identifier',
-				line: 2,
-				column: 6,
-				suggestions: [{
-					desc: 'Remove the `.skip`',
-					output: header + 'test.cb(t => { t.pass(); t.end(); });'
-				}]
-			}]
-		},
-		{
-			code: header + 'test.\n\tskip.cb(t => { t.pass(); t.end(); });',
-			errors: [{
-				message,
-				type: 'Identifier',
-				line: 3,
-				column: 2,
-				suggestions: [{
-					desc: 'Remove the `.skip`',
-					output: header + 'test\n\t.cb(t => { t.pass(); t.end(); });'
-				}]
-			}]
-		},
-		{
-			code: header + 'test  .skip  .cb(t => { t.pass(); t.end(); });',
-			errors: [{
-				message,
-				type: 'Identifier',
-				line: 2,
-				column: 8,
-				suggestions: [{
-					desc: 'Remove the `.skip`',
-					output: header + 'test    .cb(t => { t.pass(); t.end(); });'
 				}]
 			}]
 		}

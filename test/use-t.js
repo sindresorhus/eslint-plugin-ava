@@ -15,10 +15,6 @@ const parameterNotNamedTErrors = [{
 	message: 'Test parameter should be named `t`.'
 }];
 
-const tooManyParametersErrors = [{
-	message: 'Test should only have one parameter named `t`.'
-}];
-
 const header = 'const test = require(\'ava\');\n';
 
 ruleTester.run('use-t', rule, {
@@ -26,10 +22,13 @@ ruleTester.run('use-t', rule, {
 		header + 'test();',
 		header + 'test(() => {});',
 		header + 'test(t => {});',
-		header + 'test.cb(t => {});',
-		// Header + 'test("test name", t => {});',
+		header + 'test("test name", t => {});',
+		header + 'test((t, foo) => {});',
 		header + 'test(function (t) {});',
 		header + 'test(testFunction);',
+		header + 'test.macro(testFunction);',
+		header + 'test.macro(t => {});',
+		header + 'test.macro({exec: t => {}, title: () => "title"});',
 		header + 'test.todo("test name");',
 		// Shouldn't be triggered since it's not a test file
 		'test(foo => {});',
@@ -47,24 +46,16 @@ ruleTester.run('use-t', rule, {
 			errors: parameterNotNamedTErrors
 		},
 		{
-			code: header + 'test.cb(foo => { foo.end(); });',
-			errors: parameterNotNamedTErrors
-		},
-		{
 			code: header + 'test(function (foo) {});',
 			errors: parameterNotNamedTErrors
 		},
 		{
-			code: header + 'test((t, foo) => {});',
-			errors: tooManyParametersErrors
+			code: header + 'test.macro(function (foo) {});',
+			errors: parameterNotNamedTErrors
 		},
 		{
-			code: header + 'test((foo, t) => {});',
-			errors: tooManyParametersErrors
-		},
-		{
-			code: header + 'test("test name", (t, foo) => {});',
-			errors: tooManyParametersErrors
+			code: header + 'test.macro({ exec(foo) {} });',
+			errors: parameterNotNamedTErrors
 		}
 	]
 });
